@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { changePassword } from '../../api/auth'
-import messages from '../AutoDismissAlert/messages'
+import { changePasswordSuccess, changePasswordFailure } from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -31,7 +31,7 @@ onChangePassword = (event) => {
     .then(() =>
       msgAlert({
         heading: 'Change Password Success',
-        message: messages.changePasswordSuccess,
+        message: changePasswordSuccess,
         variant: 'success'
       })
     )
@@ -40,7 +40,7 @@ onChangePassword = (event) => {
       this.setState({ oldPassword: '', newPassword: '' })
       msgAlert({
         heading: 'Change Password Failed with error: ' + error.message,
-        message: messages.changePasswordFailure,
+        message: changePasswordFailure,
         variant: 'danger'
       })
     })

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { signUp, signIn } from '../../api/auth'
-import messages from '../AutoDismissAlert/messages'
+import { signUpSuccess, signUpFailure } from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -34,7 +34,7 @@ onSignUp = (event) => {
     .then(() =>
       msgAlert({
         heading: 'Sign Up Success',
-        message: messages.signUpSuccess,
+        message: signUpSuccess,
         variant: 'success'
       })
     )
@@ -43,7 +43,7 @@ onSignUp = (event) => {
       this.setState({ email: '', password: '', passwordConfirmation: '' })
       msgAlert({
         heading: 'Sign Up Failed with error: ' + error.message,
-        message: messages.signUpFailure,
+        message: signUpFailure,
         variant: 'danger'
       })
     })
